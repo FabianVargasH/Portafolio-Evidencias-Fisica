@@ -9,7 +9,7 @@ export default function TopicSection({ topic }: { topic: TopicMeta }) {
       {sections.map(s => (
         <section key={s.id} id={s.id} className="block">
           <h3>{s.label}</h3>
-          <p className="muted">Contenido pendiente.</p>
+          {topic.content?.[s.id] ?? <p className="muted">Contenido pendiente.</p>}
         </section>
       ))}
     </article>
