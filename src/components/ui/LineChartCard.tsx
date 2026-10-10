@@ -1,11 +1,9 @@
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-
+import { CartesianGrid, Legend, Line, LineChart, ReferenceDot, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 interface S { key: string; name: string; color: string }
-interface Props { title: string; data: object[]; xKey: string; series: S[]; xLabel: string; yLabel: string; step?: boolean }
-
+interface Props { title: string; data: object[]; xKey: string; series: S[]; xLabel: string; yLabel: string; step?: boolean; mark?: { x: number; y: number } }
 const G = '#1f2940', T = '#9aa4b8'
 
-export default function LineChartCard({ title, data, xKey, series, xLabel, yLabel, step }: Props) {
+export default function LineChartCard({ title, data, xKey, series, xLabel, yLabel, step, mark }: Props) {
   return (
     <figure className="chart">
       <figcaption>{title}</figcaption>
@@ -22,6 +20,7 @@ export default function LineChartCard({ title, data, xKey, series, xLabel, yLabe
             <Line key={s.key} dataKey={s.key} name={s.name} stroke={s.color} strokeWidth={2} dot={false}
               type={step ? 'stepAfter' : 'linear'} isAnimationActive={false} />
           ))}
+          {mark && <ReferenceDot x={mark.x} y={mark.y} r={6} fill="#fbbf24" stroke="none" ifOverflow="extendDomain" />}
         </LineChart>
       </ResponsiveContainer>
     </figure>
