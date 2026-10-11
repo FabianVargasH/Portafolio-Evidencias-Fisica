@@ -198,13 +198,9 @@ export const fuentes = (
         n: '5',
         body: (
           <>
-            Tesis doctoral «The friction of racing tyres», University of Surrey (Open Research).{' '}
-            <a
-              href="https://openresearch.surrey.ac.uk/esploro/outputs/doctoral/The-friction-of-racing-tyres/99512080202346"
-              target="_blank"
-              rel="noreferrer"
-            >
-              openresearch.surrey.ac.uk/…/99512080202346
+            Fina, E., «The friction of racing tyres», tesis doctoral (PhD), University of Surrey, 2016.{' '}
+            <a href="https://openresearch.surrey.ac.uk/esploro/outputs/doctoral/The-friction-of-racing-tyres/99512080202346" target="_blank" rel="noreferrer">
+              openresearch.surrey.ac.uk/…/The-friction-of-racing-tyres
             </a>
             . Consultado el 10 oct 2026.
           </>
