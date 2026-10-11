@@ -14,8 +14,8 @@ export const content: TopicContent = {
       <P><b>Producto:</b> <i>Super Mario Bros.</i> (Nintendo), un juego de plataformas 2D en el que el salto es la mecánica central.</P>
       <P>
         El salto de Mario no es una animación guionizada: en cada fotograma el juego suma una gravedad a la velocidad vertical
-        y luego mueve al personaje con esa velocidad. La gravedad tampoco es un valor único. En <i>Super Mario Bros.</i> depende
-        del salto más reciente (caminando, corriendo o parado) y se conserva hasta que Mario vuelve a saltar. En <i>Super Mario Bros. 3</i>,
+        y luego mueve al personaje con esa velocidad. La gravedad tampoco es un valor único.<br></br> <br></br>En <i>Super Mario Bros</i> depende
+        del salto más reciente (caminando, corriendo o parado) y se conserva hasta que Mario vuelve a saltar. <br></br>En <i>Super Mario Bros 3</i>,
         cuyo código desensamblado está documentado, se aplica una gravedad menor mientras el botón de salto sigue presionado y una mayor
         al soltarlo o al caer, y la potencia del impulso crece con la velocidad horizontal. De ahí salen el salto de altura variable
         y la sensación de caer más rápido de lo que se sube.

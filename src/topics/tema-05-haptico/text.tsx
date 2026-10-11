@@ -30,12 +30,12 @@ export const casoDeUso = (
 export const concepto = (
   <>
     <P>
-      Ley de Hooke [M2, §9]: un resorte ideal ejerce una fuerza que se opone a su deformación. Con x = 0 cuando no está
+      Ley de Hooke [M2]: un resorte ideal ejerce una fuerza que se opone a su deformación. Con x = 0 cuando no está
       deformado, k en N/m, y la fuerza apuntando hacia x = 0:
     </P>
     <Eq>F<sub>el,x</sub> = −kx</Eq>
     <P>
-      Tercera ley [M2, §2]: la fuerza del dedo sobre el gatillo y la del gatillo sobre el dedo tienen igual magnitud y
+      Tercera ley [M2]: la fuerza del dedo sobre el gatillo y la del gatillo sobre el dedo tienen igual magnitud y
       sentido opuesto, y actúan sobre cuerpos distintos. Lo que el jugador siente es la segunda de ellas.
     </P>
     <P>
@@ -94,6 +94,8 @@ export const analisis = (
       Límite: el video muestra el mecanismo, no la sensación ni los valores de fuerza. La curva es un modelo mío, no una
       medición de Sony.
     </P>
+    <h3>Extras para acompañar la explicación</h3>
+    <P>Se añadieron estas gráficas interactivas para poder acompañar el comportamiento del gatillo a nivel de Física :)</P>
   </>
 )
 

@@ -77,7 +77,7 @@ export const text: TopicContent = {
       />
       <GainCost
         gain="Un movimiento suave con límites de aceleración garantizados, que se adapta a cualquier ruta y se puede verificar con las ecuaciones."
-        cost="Hay que elegir y ajustar los parámetros (velocidad y aceleración máximas), y el modelo no incluye viento, la masa de la carga ni la dinámica de los motores. Además, el perfil trapezoidal usado aquí cambia la aceleración de golpe, mientras que PX4 limita también el jerk [1]; por eso es una versión simplificada. (Esta valoración de costos es razonamiento propio.)"
+        cost="Hay que elegir y ajustar los parámetros (velocidad y aceleración máximas), y el modelo no incluye viento, la masa de la carga ni la dinámica de los motores. Además, el perfil trapezoidal usado aquí cambia la aceleración de golpe, mientras que PX4 limita también el jerk [1]; por eso es una versión simplificada."
       />
     </>
   ),

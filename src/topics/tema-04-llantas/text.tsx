@@ -23,11 +23,6 @@ export const casoDeUso = (
       Un simulador de vuelta necesita algo más rico: un coeficiente que dependa de la carga y de la temperatura,
       μ = μ(N, T), porque la fuerza que la llanta puede dar en cada curva sale de ahí (apartados siguientes).
     </P>
-    <P>
-      Aviso sobre las fuentes: [1] es un artículo técnico de 1996 y [2] es la página comercial del propio proveedor, así
-      que describe funciones del producto, no su implementación ni sus ecuaciones. Las uso para ilustrar el caso, no como
-      especificación de ningún software de equipo.
-    </P>
   </>
 )
 

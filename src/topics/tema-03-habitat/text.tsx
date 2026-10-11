@@ -25,7 +25,7 @@ export const casoDeUso = (
     </Eq>
     <P>
       Si el diseñador fija ω y r, la gravedad aparente de cada punto de la estación sale de esta ecuación, sin tablas ni
-      animaciones aparte (la justificación completa está más abajo).
+      animaciones aparte.
     </P>
   </>
 )
