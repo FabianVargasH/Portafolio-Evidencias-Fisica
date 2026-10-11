@@ -1,7 +1,7 @@
 import type { TopicContent } from '../../types/topic'
 import Eq from '../../components/ui/Eq'
 import JumpSim from './JumpSim'
-import { P, Li, Refs } from '../../components/ui/Cited'
+import { P,Refs } from '../../components/ui/Cited'
 import { AltCards, GainCost } from '../../components/ui/AltCards'
 
 const A = ({ h, t }: { h: string; t: string }) => (

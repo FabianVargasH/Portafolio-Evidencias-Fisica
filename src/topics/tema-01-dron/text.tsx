@@ -1,5 +1,5 @@
 import Eq from '../../components/ui/Eq'
-import { P, Li, Refs } from '../../components/ui/Cited'
+import { P, Refs } from '../../components/ui/Cited'
 import type { TopicContent } from '../../types/topic'
 import { AltCards, GainCost } from '../../components/ui/AltCards'
 
