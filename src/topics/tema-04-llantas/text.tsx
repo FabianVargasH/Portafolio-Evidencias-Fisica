@@ -1,6 +1,7 @@
 import Eq from '../../components/ui/Eq'
 import { P, Li, Refs } from '../../components/ui/Cited'
 import { AltCards, GainCost } from '../../components/ui/AltCards'
+import { DataTable } from '../../components/ui/DataTable'
 
 export const casoDeUso = (
   <>
@@ -86,6 +87,19 @@ export const concepto = (
       una llanta real de F1. Por eso las curvas de este tema son un modelo mío, anclado en los valores citados y rotulado
       como ilustrativo.
     </P>
+    <h4>Parámetros del modelo</h4>
+    <DataTable
+      head={['Parámetro', 'Valor', 'Origen']}
+      rows={[
+        ['Temperatura del pico de agarre', '100 °C', '[4]'],
+        ['μ en el pico', '1,6', 'Propio, ilustrativo'],
+        ['μ mínimo (piso)', '0,6', 'Propio, ilustrativo'],
+        ['Ancho de la campana, lado frío / caliente', '30 °C / 50 °C', 'Propio, ilustrativo'],
+        ['Carga fija en la gráfica de temperatura', '4,5 kN', 'Propio, ilustrativo'],
+        ['μ y carga de referencia', '1,6 a 2200 N', '[3]'],
+        ['Sensibilidad a la carga n (valor por defecto)', '0,85', 'Propio, ilustrativo'],
+      ]}
+    />
 
     <h4>Caso numérico con el modelo de la gráfica 2</h4>
     <P>

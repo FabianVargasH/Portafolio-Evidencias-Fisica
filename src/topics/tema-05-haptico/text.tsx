@@ -1,6 +1,7 @@
 import Eq from '../../components/ui/Eq'
 import { P, Li, Refs } from '../../components/ui/Cited'
 import { AltCards, GainCost } from '../../components/ui/AltCards'
+import { DataTable } from '../../components/ui/DataTable'
 
 export const INSTANTE = '9:45'
 
@@ -49,6 +50,15 @@ export const concepto = (
       pasa con esa energía (si se disipa o la devuelve el motor), así que no lo afirmo; uso ½k(x − x₀)² solo como medida
       del trabajo que hace el dedo.
     </P>
+        <h4>Parámetros del modelo</h4>
+    <DataTable
+      head={['Parámetro', 'Valor', 'Origen']}
+      rows={[
+        ['k (rigidez del resorte virtual)', '300 N/m', 'Propio, no medido'],
+        ['x₀ (punto donde empieza la fuerza)', '6 mm', 'Propio, no medido'],
+        ['Recorrido máximo del gatillo en el modelo', '15 mm', 'Propio, no medido'],
+      ]}
+    />
 
     <h4>Caso numérico (valores propios): k = 300 N/m, x₀ = 6 mm, x = 15 mm</h4>
     <ul>

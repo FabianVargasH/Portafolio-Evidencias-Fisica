@@ -2,6 +2,7 @@ import Eq from '../../components/ui/Eq'
 import { P, Li, Refs } from '../../components/ui/Cited'
 import { AltCards, GainCost } from '../../components/ui/AltCards'
 
+
 export const casoDeUso = (
   <>
     <P>
@@ -25,11 +26,6 @@ export const casoDeUso = (
     <P>
       Si el diseñador fija ω y r, la gravedad aparente de cada punto de la estación sale de esta ecuación, sin tablas ni
       animaciones aparte (la justificación completa está más abajo).
-    </P>
-    <P>
-      Aviso sobre las fuentes: tanto la wiki como el foro son contenido de comunidad, no documentación oficial, y sus
-      estimaciones no coinciden entre sí (por ejemplo, el tamaño de la estación). Las uso para ilustrar la física, no como
-      especificaciones del juego.
     </P>
   </>
 )

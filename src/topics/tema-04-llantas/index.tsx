@@ -1,6 +1,7 @@
 import type { TopicContent } from '../../types/topic'
 import TireTempChart from './TireTempChart'
 import TireLoadChart from './TireLoadChart'
+import TurnDiagram from './TurnDiagram'
 import { casoDeUso, concepto, justificacion, fuentes } from './text'
 
 export const content: TopicContent = {
@@ -11,6 +12,7 @@ export const content: TopicContent = {
     <>
       <TireTempChart />
       <TireLoadChart />
+      <TurnDiagram />
     </>
   ),
   fuentes,

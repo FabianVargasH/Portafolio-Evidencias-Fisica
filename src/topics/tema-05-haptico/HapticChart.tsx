@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import LineChartCard from '../../components/ui/LineChartCard'
 import { fHap, uHap, K, X0, XMAX } from '../../lib/physics/haptic'
+import TriggerDiagram from './TriggerDiagram'
 
 const f = (v: number, d = 2) => v.toLocaleString('es', { maximumFractionDigits: d })
 
@@ -36,6 +37,7 @@ export default function HapticChart() {
         Inicio del efecto x₀: <strong>{f(x0, 1)} mm</strong>
         <input type="range" min={0} max={12} step={0.5} value={x0} onChange={e => setX0(+e.target.value)} style={{ width: '100%' }} />
       </label>
+      <TriggerDiagram x={x} x0={x0} k={k} F={F} xmax={XMAX * 1000} />
       <p>
         En x = {f(x, 1)} mm: fuerza = <strong>{f(F)} N</strong>, energía equivalente ½k(x − x₀)² ={' '}
         <strong>{f(U * 1000)} mJ</strong>.
