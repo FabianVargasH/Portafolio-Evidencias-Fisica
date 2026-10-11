@@ -38,6 +38,7 @@ export default function TireLoadChart() {
         Sensibilidad a la carga n: <strong>{f(e)}</strong> (n = 1 es el modelo simple)
         <input type="range" min={0.7} max={1} step={0.01} value={e} onChange={ev => setE(+ev.target.value)} style={{ width: '100%' }} />
       </label>
+      <p>Nota: Se agregaron barras interactivas con el mismo objetivo que la anterior, visualizar el comportamiento de los valores con datos variables, pero manteniendo la visualización de datos solicitada</p>
       <p>
         Con N = {f(n, 1)} kN: modelo simple {f(simple)} kN, modelo con sensibilidad {f(real)} kN
         ({f(dif, 1)} % menos agarre).

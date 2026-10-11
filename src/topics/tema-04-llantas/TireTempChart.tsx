@@ -22,6 +22,7 @@ export default function TireTempChart() {
         Temperatura: <strong>{t} °C</strong>
         <input type="range" min={20} max={180} step={1} value={t} onChange={e => setT(+e.target.value)} style={{ width: '100%' }} />
       </label>
+      <p>Nota: La barra interactiva es para representar mejor de manera variable la temperatura de la llanta, pero manteniendo la visualización de datos solicitada</p>
       <p>
         {estado}: μ = <strong>{f(mu)}</strong>. Con N = {f(N_FIJA / 1000, 1)} kN, F<sub>máx</sub> = μ·N ={' '}
         <strong>{f(fmaxT(t) / 1000)} kN</strong>.

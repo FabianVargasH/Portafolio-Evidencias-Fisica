@@ -23,6 +23,8 @@ export default function TurnDiagram() {
 
   return (
     <>
+      <h3>Extra: Simulación interactiva</h3>
+      <p>Se agregó una simulación interactiva para lograr explicar mejor el contexto en el que se maneja las fuerzas de fricción</p>
       <figure className="chart" style={{ margin: '12px 0' }}>
         <figcaption>Esquema de una curva vista desde arriba (modelo ilustrativo)</figcaption>
         <svg
