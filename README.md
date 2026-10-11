@@ -3,7 +3,7 @@
 Portafolio individual del curso **Física I (FUN-18)**, Universidad CENFOTEC (sección FCV1, 2026-C3).
 Autor: **Fabián Vargas Hidalgo**.
 
-- **Página publicada:** <PEGAR_AQUÍ_LA_URL_PÚBLICA>
+- **Página publicada:** [portafolio de fisica | Fabian Vargas](https://portafolio-fisica.vercel.app/)
 - **Repositorio:** este mismo.
 
 ## Qué contiene
