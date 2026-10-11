@@ -19,8 +19,18 @@ export default function TopicPage() {
       <div>
         <TopicSection topic={topics[i]} />
         <div className="pager">
-          {prev ? <Link to={`/${prev.id}`}>← Tema {prev.num}</Link> : <span />}
-          {next ? <Link to={`/${next.id}`}>Tema {next.num} →</Link> : <span />}
+          {prev ? (
+            <Link to={`/${prev.id}`} className="pager-link prev">
+              <span className="dir"><span className="arr" aria-hidden>←</span> Anterior</span>
+              <strong>Tema {prev.num}: {prev.title}</strong>
+            </Link>
+          ) : <span />}
+          {next ? (
+            <Link to={`/${next.id}`} className="pager-link next">
+              <span className="dir">Siguiente <span className="arr" aria-hidden>→</span></span>
+              <strong>Tema {next.num}: {next.title}</strong>
+            </Link>
+          ) : <span />}
         </div>
       </div>
     </div>

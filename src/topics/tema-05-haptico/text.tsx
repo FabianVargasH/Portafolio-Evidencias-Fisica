@@ -1,5 +1,6 @@
 import Eq from '../../components/ui/Eq'
 import { P, Li, Refs } from '../../components/ui/Cited'
+import { AltCards, GainCost } from '../../components/ui/AltCards'
 
 export const INSTANTE = '9:45'
 
@@ -88,26 +89,26 @@ export const analisis = (
 
 export const justificacion = (
   <>
-    <P>
-      Alternativa 1, vibración fija (el «rumble» del DualShock 4): no depende de la posición, por lo que no puede dar la
-      sensación de que algo se tensa a medida que se jala [4].
-    </P>
-    <P>
-      Alternativa 2, un resorte mecánico común: tiene una k fija, de modo que todos los juegos sentirían lo mismo. Con un
-      motor, el software elige la fuerza y el punto de inicio, e incluso puede empujar de vuelta en cualquier punto del
-      recorrido [1].
-    </P>
-    <P>
-      Alternativa 3, un efecto guionizado en el tiempo (vibrar tantos milisegundos cuando ocurre un evento): no responde a
-      si el jugador jala lento o rápido. Un modelo F(x) liga la fuerza a la posición, así que la sensación es coherente con
-      lo que hace el dedo.
-    </P>
-    <P>
-      Qué cuesta: hardware adicional en cada gatillo (motor, tornillo sin fin, engranajes y potenciómetro [2]) y un
-      control por software. Además, el modelo F = k(x − x₀) es una idealización: un resorte real tiene Hooke lineal solo
-      en su rango [M2], y el motor puede producir cualquier perfil, así que elegir la curva se vuelve una decisión de
-      diseño.
-    </P>
+    <AltCards
+      items={[
+        {
+          title: 'Vibración fija («rumble» del DualShock 4)',
+          text: 'No depende de la posición, por lo que no puede dar la sensación de que algo se tensa a medida que se jala [4].',
+        },
+        {
+          title: 'Resorte mecánico común',
+          text: 'Tiene una k fija, de modo que todos los juegos sentirían lo mismo. Con un motor, el software elige la fuerza y el punto de inicio, e incluso puede empujar de vuelta en cualquier punto del recorrido [1].',
+        },
+        {
+          title: 'Efecto guionizado en el tiempo',
+          text: 'Vibrar tantos milisegundos cuando ocurre un evento no responde a si el jugador jala lento o rápido. Un modelo F(x) liga la fuerza a la posición, así que la sensación es coherente con lo que hace el dedo.',
+        },
+      ]}
+    />
+    <GainCost
+      gain="El software elige la fuerza y el punto de inicio, y la fuerza sigue la posición del dedo en lugar de un efecto fijo o guionizado [1]."
+      cost="Hardware adicional en cada gatillo (motor, tornillo sin fin, engranajes y potenciómetro [2]) y un control por software. Además, F = k(x − x₀) es una idealización: un resorte real tiene Hooke lineal solo en su rango [M2], y el motor puede producir cualquier perfil, así que elegir la curva se vuelve una decisión de diseño."
+    />
   </>
 )
 

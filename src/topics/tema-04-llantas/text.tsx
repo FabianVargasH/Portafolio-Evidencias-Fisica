@@ -1,5 +1,6 @@
 import Eq from '../../components/ui/Eq'
 import { P, Li, Refs } from '../../components/ui/Cited'
+import { AltCards, GainCost } from '../../components/ui/AltCards'
 
 export const casoDeUso = (
   <>
@@ -110,29 +111,26 @@ export const concepto = (
 
 export const justificacion = (
   <>
-    <P>
-      Alternativa 1, un coeficiente de agarre fijo por llanta («μ = 1,6»): no puede representar que la fuerza disponible
-      cambie con la carga ni con la temperatura. En un auto de carrera las llantas trabajan siempre cerca del límite de
-      adherencia, la dinámica es muy no lineal y la transferencia lateral de carga es fundamental para el balance [1]; un
-      μ fijo pierde justo ese efecto.
-    </P>
-    <P>
-      Alternativa 2, una tabla de tiempos o de comportamientos precalculados por circuito y compuesto: habría que medirla de
-      nuevo para cada combinación de carga, reglaje y condición de pista. Con el modelo, una sola ecuación μ(N, T) responde
-      para cualquier carga y temperatura, y permite preguntas que la tabla no contiene, como qué pasa si se cambia la
-      aerodinámica.
-    </P>
-    <P>
-      Alternativa 3, ignorar la temperatura: la variante térmica de Canopy puede correr en tiempo real en un simulador con
-      piloto, para que este sienta el efecto de su conducción sobre la llanta [2]. Sin modelo térmico, ese ciclo
-      (conducir más fuerte, calentar, cambiar el agarre) no existe.
-    </P>
-    <P>
-      Qué cuesta: modelar la física exige datos de llanta que no siempre existen. Gadola et al. usaron un μ máximo
-      constante para la fuerza longitudinal por simplicidad y por falta de datos [1], y esta página enfrenta el mismo
-      límite: no hay datos medidos abiertos, así que las curvas son un modelo ilustrativo. Cuanto más detallado el modelo,
-      más parámetros hay que ajustar con mediciones, y un modelo mal ajustado puede dar una falsa sensación de precisión.
-    </P>
+    <AltCards
+      items={[
+        {
+          title: 'Coeficiente de agarre fijo por llanta («μ = 1,6»)',
+          text: 'No puede representar que la fuerza disponible cambie con la carga ni con la temperatura. En un auto de carrera las llantas trabajan siempre cerca del límite de adherencia, la dinámica es muy no lineal y la transferencia lateral de carga es fundamental para el balance [1]; un μ fijo pierde justo ese efecto.',
+        },
+        {
+          title: 'Tabla de comportamientos precalculados por circuito y compuesto',
+          text: 'Habría que medirla de nuevo para cada combinación de carga, reglaje y condición de pista. Con el modelo, una sola ecuación μ(N, T) responde para cualquier carga y temperatura, y permite preguntas que la tabla no contiene, como qué pasa si se cambia la aerodinámica.',
+        },
+        {
+          title: 'Ignorar la temperatura',
+          text: 'La variante térmica de Canopy puede correr en tiempo real en un simulador con piloto, para que este sienta el efecto de su conducción sobre la llanta [2]. Sin modelo térmico, ese ciclo (conducir más fuerte, calentar, cambiar el agarre) no existe.',
+        },
+      ]}
+    />
+    <GainCost
+      gain="Una sola ecuación μ(N, T) responde para cualquier carga y temperatura, permite preguntas que una tabla no contiene, y recupera el ciclo de conducir más fuerte, calentar y cambiar el agarre que un modelo sin temperatura no tiene [2]."
+      cost="Modelar la física exige datos de llanta que no siempre existen. Gadola et al. usaron un μ máximo constante para la fuerza longitudinal por simplicidad y por falta de datos [1], y esta página enfrenta el mismo límite: no hay datos medidos abiertos, así que las curvas son un modelo ilustrativo. Cuanto más detallado el modelo, más parámetros hay que ajustar con mediciones, y un modelo mal ajustado puede dar una falsa sensación de precisión."
+    />
   </>
 )
 

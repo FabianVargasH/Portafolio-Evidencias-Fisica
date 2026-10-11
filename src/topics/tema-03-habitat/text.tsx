@@ -1,5 +1,6 @@
 import Eq from '../../components/ui/Eq'
 import { P, Li, Refs } from '../../components/ui/Cited'
+import { AltCards, GainCost } from '../../components/ui/AltCards'
 
 export const casoDeUso = (
   <>
@@ -90,31 +91,26 @@ export const concepto = (
 
 export const justificacion = (
   <>
-    <P>
-      Alternativa 1, una gravedad fija por estación («aquí hay 1 g»): no representa que la gravedad en un hábitat rotatorio
-      cambia con la distancia al eje. La wiki de Elite describe valores bajos cerca del eje (≈ 0,1 g en el muelle de
-      acoplamiento) que crecen hacia afuera [1]. Con a<sub>c</sub> = rω² ese gradiente sale gratis para cualquier punto y
-      cualquier tamaño de estación.
-    </P>
-    <P>
-      Alternativa 2, un atraque guionizado o precalculado: habría que animar la maniobra para cada estación, cada tamaño y
-      cada punto de aproximación. Con el modelo, la corrección se obtiene de una sola regla: una plataforma a distancia r se
-      mueve con v = rω, y la nave solo necesita igualar esa velocidad. Los jugadores describen justamente esa compensación
-      [2].
-    </P>
-    <P>
-      Alternativa 3, copiar solo la apariencia (una estación que gira como adorno): daría un giro sin consecuencias, sin
-      relación con el peso que sienten los habitantes ni con las rpm que se toleran. El modelo en cambio ata las tres
-      cantidades: al cambiar r, cambia la rotación necesaria (ω = √(g/r)), y con ella el confort [3].
-    </P>
-    <P>
-      Qué cuesta: calcular rω² es trivial para un motor de juego, así que el costo no es de cómputo sino de diseño y de
-      jugabilidad. Radio y rpm quedan acoplados (las estaciones pequeñas giran más rápido y se vuelven incómodas [3]), y un
-      modelo completo vuelve el atraque muy difícil, como describen los jugadores cuando falla la corrección [2]. Por eso
-      un juego puede modelar la física y aun así decidir cuánta mostrar: compensar la rotación de forma automática mantiene
-      el atraque jugable. Que los usuarios del foro no coincidan en cuánto simula realmente el juego [2] confirma que esa
-      decisión de diseño existe.
-    </P>
+    <AltCards
+      items={[
+        {
+          title: 'Gravedad fija por estación («aquí hay 1 g»)',
+          text: ['No representa que la gravedad en un hábitat rotatorio cambia con la distancia al eje. La wiki de Elite describe valores bajos cerca del eje (≈ 0,1 g en el muelle de acoplamiento) que crecen hacia afuera [1]. Con a', <sub key="s">c</sub>, ' = rω² ese gradiente sale gratis para cualquier punto y cualquier tamaño de estación.'],
+        },
+        {
+          title: 'Atraque guionizado o precalculado',
+          text: 'Habría que animar la maniobra para cada estación, cada tamaño y cada punto de aproximación. Con el modelo, la corrección se obtiene de una sola regla: una plataforma a distancia r se mueve con v = rω, y la nave solo necesita igualar esa velocidad. Los jugadores describen justamente esa compensación [2].',
+        },
+        {
+          title: 'Copiar solo la apariencia (una estación que gira como adorno)',
+          text: 'Daría un giro sin consecuencias, sin relación con el peso que sienten los habitantes ni con las rpm que se toleran. El modelo en cambio ata las tres cantidades: al cambiar r, cambia la rotación necesaria (ω = √(g/r)), y con ella el confort [3].',
+        },
+      ]}
+    />
+    <GainCost
+      gain="Una sola ecuación da el gradiente de gravedad para cualquier punto y tamaño de estación, una sola regla (v = rω) resuelve la compensación del atraque, y radio, rotación y confort quedan ligados [3]."
+      cost="Calcular rω² es trivial para un motor de juego, así que el costo no es de cómputo sino de diseño y de jugabilidad. Radio y rpm quedan acoplados (las estaciones pequeñas giran más rápido y se vuelven incómodas [3]), y un modelo completo vuelve el atraque muy difícil, como describen los jugadores cuando falla la corrección [2]. Por eso un juego puede modelar la física y aun así decidir cuánta mostrar: compensar la rotación de forma automática mantiene el atraque jugable. Que los usuarios del foro no coincidan en cuánto simula realmente el juego [2] confirma que esa decisión de diseño existe."
+    />
   </>
 )
 

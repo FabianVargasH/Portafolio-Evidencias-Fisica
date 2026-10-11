@@ -1,32 +1,55 @@
-# React + TypeScript + Vite
+# Portafolio de Física I · Avance 1
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Portafolio individual del curso **Física I (FUN-18)**, Universidad CENFOTEC (sección FCV1, 2026-C3).
+Autor: **Fabián Vargas Hidalgo**.
 
-Currently, two official plugins are available:
+- **Página publicada:** <PEGAR_AQUÍ_LA_URL_PÚBLICA>
+- **Repositorio:** este mismo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Qué contiene
 
-## React Compiler
+Cinco temas de física (cinemática, dinámica y leyes de conservación) aplicados a casos de Ingeniería del Software. Cada tema tiene un caso de uso, el concepto con su ecuación, una justificación frente a alternativas no físicas, un recurso de apoyo y sus fuentes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Tema | Caso | Recurso de apoyo |
+|---|---|---|
+| 1 | Dron de reparto (PX4 Autopilot) | Visualización de datos |
+| 2 | Salto del personaje (Super Mario Bros.) | Simulación interactiva |
+| 3 | Gravedad artificial (Elite Dangerous) | Diagrama |
+| 4 | Llantas de F1 | Visualización de datos |
+| 5 | Resorte virtual en un control háptico (DualSense) | Multimedia con análisis |
 
-## Expanding the Oxlint configuration
+## Criterios de contenido
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- Las explicaciones se basan en los módulos del curso, citados como [M1], [M2] y [M3], y en fuentes externas consultables, numeradas [1], [2], etc.
+- Los cálculos, modelos y valores numéricos propios están rotulados como tales en la página. Cuando no hay datos medidos abiertos (por ejemplo, las llantas de F1), la página lo declara y presenta el modelo como ilustrativo.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Tecnologías
+
+React, TypeScript y Vite, con gráficas en recharts. Es un sitio estático, sin backend. La navegación usa `HashRouter`, así que no necesita configuración de rutas en el servidor.
+
+## Cómo ejecutarlo
+
+Requiere [Node.js](https://nodejs.org). Desde la carpeta del proyecto:
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Para generar la versión de producción (queda en `dist/`):
+
+```bash
+npm run build
+```
+
+## Estructura
+
+```
+src/
+  app/         App.tsx, site.ts (datos de la portada)
+  components/  layout/ (portada, navegación) y ui/ (citas, ecuaciones, gráficas)
+  lib/physics/ modelos y cálculos de cada tema
+  pages/       inicio y página de tema
+  topics/      un directorio por tema, más registry.ts y sections.ts
+public/        favicon y recursos
+```

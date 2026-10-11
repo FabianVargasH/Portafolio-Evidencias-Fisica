@@ -2,6 +2,7 @@ import type { TopicContent } from '../../types/topic'
 import Eq from '../../components/ui/Eq'
 import JumpSim from './JumpSim'
 import { P, Li, Refs } from '../../components/ui/Cited'
+import { AltCards, GainCost } from '../../components/ui/AltCards'
 
 const A = ({ h, t }: { h: string; t: string }) => (
   <a href={h} target="_blank" rel="noreferrer" style={{ color: 'var(--accent-text, var(--accent))' }}>{t}</a>
@@ -57,21 +58,26 @@ export const content: TopicContent = {
   justificacion: (
     <>
       <P>Hay tres alternativas no físicas para hacer saltar a un personaje, y cada una falla en algo que el modelo de gravedad resuelve:</P>
-      <ul>
-        <Li><b>Valores fijos</b> (el salto siempre sube lo mismo): no permite salto de altura variable ni que el impulso dependa de la carrera, como en <i>Super Mario Bros. 3</i> [3].</Li>
-        <Li><b>Trayectorias precalculadas</b> (una tabla de alturas por fotograma): hay que rehacer la tabla cada vez que cambia la velocidad horizontal, la gravedad o la altura deseada.</Li>
-        <Li><b>Animaciones guionizadas</b> (el salto es un clip): no reaccionan si se suelta el botón a mitad del salto ni si Mario cae desde una plataforma.</Li>
-      </ul>
-      <P>
-        Con el modelo, cambiar tres números (impulso, g↑ y g↓) reproduce todos esos comportamientos, y el diseñador puede afinar la
-        jugabilidad con las ecuaciones de la sección anterior. Hasta el cambio de gravedad según el estado del personaje [1] es solo
-        elegir otro valor de g.
-      </P>
-      <P>
-        <b>Qué cuesta:</b> hay que calibrar. Una gravedad realista (9,81 m/s²) da saltos flotantes e imprecisos para el control, como muestra
-        la curva punteada de la simulación, así que se "falsea" la física con valores mucho mayores [2]. También hay que decidir cuántas gravedades
-        usar y cuándo cambiarlas, algo que un clip animado no exige. Es un modelo simple, pero deliberadamente distinto del real.
-      </P>
+      <AltCards
+        items={[
+          {
+            title: 'Valores fijos (el salto siempre sube lo mismo)',
+            text: ['No permite salto de altura variable ni que el impulso dependa de la carrera, como en ', <i key="i">Super Mario Bros. 3</i>, ' [3].'],
+          },
+          {
+            title: 'Trayectorias precalculadas (una tabla de alturas por fotograma)',
+            text: 'Hay que rehacer la tabla cada vez que cambia la velocidad horizontal, la gravedad o la altura deseada.',
+          },
+          {
+            title: 'Animaciones guionizadas (el salto es un clip)',
+            text: 'No reaccionan si se suelta el botón a mitad del salto ni si Mario cae desde una plataforma.',
+          },
+        ]}
+      />
+      <GainCost
+        gain="Con el modelo, cambiar tres números (impulso, g↑ y g↓) reproduce todos esos comportamientos, y el diseñador puede afinar la jugabilidad con las ecuaciones de la sección anterior. Hasta el cambio de gravedad según el estado del personaje [1] es solo elegir otro valor de g."
+        cost='Hay que calibrar. Una gravedad realista (9,81 m/s²) da saltos flotantes e imprecisos para el control, como muestra la curva punteada de la simulación, así que se "falsea" la física con valores mucho mayores [2]. También hay que decidir cuántas gravedades usar y cuándo cambiarlas, algo que un clip animado no exige. Es un modelo simple, pero deliberadamente distinto del real.'
+      />
     </>
   ),
   recurso: <JumpSim />,

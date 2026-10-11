@@ -1,6 +1,7 @@
 import Eq from '../../components/ui/Eq'
 import { P, Li, Refs } from '../../components/ui/Cited'
 import type { TopicContent } from '../../types/topic'
+import { AltCards, GainCost } from '../../components/ui/AltCards'
 
 const L = ({ href, children }: { href: string; children: string }) => (
   <a href={href} target="_blank" rel="noreferrer">{children}</a>
@@ -58,31 +59,29 @@ export const text: TopicContent = {
   justificacion: (
     <>
       <P>Modelar la cinemática resuelve el problema mejor que tres alternativas no físicas:</P>
-      <ul>
-        <Li>
-          <strong>Velocidades fijas sin suavizado.</strong> La propia documentación de PX4 describe un modo que traduce las órdenes directamente en
-          velocidades, sin suavizar, y lo presenta como útil para ajustar el control de velocidad, mientras que las misiones usan siempre la
-          trayectoria suave [1]. Un salto brusco de velocidad exige una aceleración enorme y un movimiento poco controlado.
-        </Li>
-        <Li>
-          <strong>Trayectorias precalculadas.</strong> Habría que preparar una a mano por cada ruta. Con el modelo, cambiar los puntos de la ruta
-          o los límites en <code>data.ts</code> regenera todo el perfil.
-        </Li>
-        <Li>
-          <strong>Animaciones guionizadas.</strong> Muestran cómo se vería el vuelo, pero no garantizan que la aceleración respete un límite ni
-          permiten comprobar, por ejemplo, que el dron llega a B a los 35 s.
-        </Li>
-      </ul>
-      <P>
-        <strong>Qué se gana:</strong> un movimiento suave con límites de aceleración garantizados, que se adapta a cualquier ruta y se puede
-        verificar con las ecuaciones. <strong>Qué cuesta:</strong> hay que elegir y ajustar los parámetros (velocidad y aceleración máximas),
-        y el modelo no incluye viento, la masa de la carga ni la dinámica de los motores. Además, el perfil trapezoidal usado aquí cambia la
-        aceleración de golpe, mientras que PX4 limita también el jerk [1]; por eso es una versión simplificada.
-        (Esta valoración de costos es razonamiento propio.)
-      </P>
+      <AltCards
+        items={[
+          {
+            title: 'Velocidades fijas sin suavizado',
+            text: 'La propia documentación de PX4 describe un modo que traduce las órdenes directamente en velocidades, sin suavizar, y lo presenta como útil para ajustar el control de velocidad, mientras que las misiones usan siempre la trayectoria suave [1]. Un salto brusco de velocidad exige una aceleración enorme y un movimiento poco controlado.',
+          },
+          {
+            title: 'Trayectorias precalculadas',
+            text: ['Habría que preparar una a mano por cada ruta. Con el modelo, cambiar los puntos de la ruta o los límites en ', <code key="c">data.ts</code>, ' regenera todo el perfil.'],
+          },
+          {
+            title: 'Animaciones guionizadas',
+            text: 'Muestran cómo se vería el vuelo, pero no garantizan que la aceleración respete un límite ni permiten comprobar, por ejemplo, que el dron llega a B a los 35 s.',
+          },
+        ]}
+      />
+      <GainCost
+        gain="Un movimiento suave con límites de aceleración garantizados, que se adapta a cualquier ruta y se puede verificar con las ecuaciones."
+        cost="Hay que elegir y ajustar los parámetros (velocidad y aceleración máximas), y el modelo no incluye viento, la masa de la carga ni la dinámica de los motores. Además, el perfil trapezoidal usado aquí cambia la aceleración de golpe, mientras que PX4 limita también el jerk [1]; por eso es una versión simplificada. (Esta valoración de costos es razonamiento propio.)"
+      />
     </>
   ),
-
+  
   fuentes: (
     <Refs items={[
       { n: '1', body: <>PX4 Development Team. <em>Multicopter Setpoint Tuning (Trajectory Generator)</em>. PX4 User Guide. <L href="https://docs.px4.io/main/en/config_mc/mc_trajectory_tuning.html">docs.px4.io/main/en/config_mc/mc_trajectory_tuning.html</L></> },
