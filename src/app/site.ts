@@ -3,5 +3,5 @@ export const site = {
   course: 'Física I (FUN-18)',
   school: 'Universidad CENFOTEC',
   title: 'Portafolio de evidencias',
-  subtitle: '',
+  subtitle: 'Avance 2 · Cinemática, dinámica, leyes de conservación y gravitación aplicadas a casos de Ingeniería del Software',
 }

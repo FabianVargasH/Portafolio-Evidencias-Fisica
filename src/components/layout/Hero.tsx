@@ -18,7 +18,7 @@ export default function Hero() {
       <h1>{site.title}</h1>
       <p className="sub">{site.subtitle}</p>
       <p className="author">{site.name}</p>
-      <a href="#tema-1" className="btn-hero" onPointerMove={mag} onPointerLeave={rel}>
+      <a href="#/" className="btn-hero" onClick={e => { e.preventDefault(); document.getElementById('temas')?.scrollIntoView({ behavior: 'smooth' }) }} onPointerMove={mag} onPointerLeave={rel}>
         <span>Ver los temas</span>
         <span className="arr" aria-hidden>↓</span>
       </a>

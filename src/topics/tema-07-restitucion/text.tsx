@@ -11,13 +11,13 @@ export const casoDeUso = (
       accesorio (<code>b2FixtureDef</code>) dos parámetros que controlan el
       rebote: <code>restitution</code> (elasticidad, típicamente en [0,1]) y{' '}
       <code>restitutionThreshold</code> (rapidez mínima de impacto para que se
-      aplique el rebote, en m/s) [7].
+      aplique el rebote, en m/s) [2].
     </P>
     <P>
-      El caso concreto es el de cualquier juego 2D que use Box2D y necesite que
-      una pelota, un objeto o un personaje rebote contra el suelo. En cada
-      impacto, la componente normal de la velocidad se invierte y se escala por
-      el coeficiente:
+      El caso concreto es el de los juegos 2D construidos sobre Box2D, como
+      Angry Birds [3], donde aves, bloques y pelotas deben rebotar contra el
+      suelo y entre sí. En cada impacto, la componente normal de la velocidad
+      se invierte y se escala por el coeficiente:
     </P>
     <Eq>
       v' = −e · v &nbsp;&nbsp;&nbsp; 0 ≤ e ≤ 1
@@ -43,21 +43,21 @@ export const casoDeUso = (
       items={[
         {
           title: 'Valores fijos',
-          text: 'La altura del rebote se escribe a mano para un caso. No generaliza: cambiar H₀ o la masa obliga a rehacer los datos.',
+          text: 'La altura del rebote se escribe a mano para un caso. Con H₀ = 0,92 m y e = 0,752, h₁ = 0,52 m; si el diseñador suelta la pelota desde 2 m, el valor escrito ya no sirve, mientras que h₁ = e²·H₀ da 1,13 m sin tocar nada.',
         },
         {
           title: 'Trayectorias precalculadas',
-          text: 'Se almacena la curva de altura contra tiempo. Ocupa memoria por caso y no responde a un control en vivo.',
+          text: 'Se almacena la curva de altura contra tiempo. Ocupa memoria por cada caso y no responde a un control en vivo: si el jugador empuja la pelota o cambia el material del suelo, hay que recalcular la curva entera.',
         },
         {
           title: 'Animaciones guionizadas',
-          text: 'El rebote se reproduce como clip. Se ve bien una vez, pero no se puede interpolar e entre 0 y 1 sin rehacer la animación.',
+          text: 'El rebote se reproduce como clip. Se ve bien una vez, pero no puede reaccionar a un choque con otro objeto en movimiento, donde las velocidades finales dependen de las masas y de e (fórmulas de v₁f y v₂f).',
         },
       ]}
     />
     <GainCost
       gain="Un único parámetro e genera rebotes coherentes para cualquier combinación de altura, masa y velocidad; el mismo e entra en las fórmulas de choque 1D del Módulo 3."
-      cost="El motor debe resolver la paradoja de Zenón (infinitos rebotes que convergen) con un umbral de velocidad; por debajo de restitutionThreshold la pelota queda en reposo y el rebote «se siente» artificial si no se calibra."
+      cost="La serie de rebotes es infinita aunque su tiempo total es finito, así que el motor usa un umbral de velocidad [2]; por debajo de restitutionThreshold la pelota queda en reposo y el rebote «se siente» artificial si no se calibra."
     />
   </>
 )
@@ -72,7 +72,7 @@ export const concepto = (
       e = (v<sub>2f</sub> − v<sub>1f</sub>) / (v<sub>1i</sub> − v<sub>2i</sub>)
     </Eq>
     <P>
-      <strong>Caso 1 — rebote contra el piso (dato real de [6]).</strong> Una
+      <strong>Caso 1 — rebote contra el piso (dato real de [1]).</strong> Una
       pelota se suelta desde H<sub>0</sub> = 0,92 m y el experimento mide
       e = 0,752. La altura del primer rebote es:
     </P>
@@ -80,7 +80,7 @@ export const concepto = (
       h<sub>1</sub> = e²·H<sub>0</sub> = (0,752)²·0,92 m = 0,52 m
     </Eq>
     <P>
-      que coincide con los 52,0 cm medidos en [6]. La simulación reproduce este
+      que coincide con los 52,0 cm medidos en [1]. La simulación reproduce este
       valor al dejar los controles «igual a la referencia».
     </P>
     <P>
@@ -128,7 +128,7 @@ export const fuentes = (
   <Refs
     items={[
       {
-        n: '6',
+        n: '1',
         body: (
           <>
             Bennett, J. y Meepagala, R. (2005). «Coefficients of Restitution», The Physics Factbook (ed. Glenn Elert).
@@ -141,13 +141,25 @@ export const fuentes = (
         ),
       },
       {
-        n: '7',
+        n: '2',
         body: (
           <>
             Box2D 2.4.1, b2FixtureDef (restitution y restitutionThreshold). El valor por defecto de
             restitutionThreshold (1 m/s) se cita del código fuente, no de la página de b2FixtureDef.{' '}
             <a href="https://box2d.org/doc_version_2_4/structb2_fixture_def.html" target="_blank" rel="noreferrer">
               box2d.org/doc_version_2_4/structb2_fixture_def.html
+            </a>
+            . Consultado el 31 oct 2026.
+          </>
+        ),
+      },
+      {
+        n: '3',
+        body: (
+          <>
+            Box2D, página principal (lista de juegos que usan el motor).{' '}
+            <a href="https://box2d.org/" target="_blank" rel="noreferrer">
+              box2d.org
             </a>
             . Consultado el 31 oct 2026.
           </>
