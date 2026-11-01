@@ -1,6 +1,6 @@
 // src/topics/tema-08-reaccion/text.tsx
 import Eq from '../../components/ui/Eq'
-import { P, Li, Refs } from '../../components/ui/Cited'
+import { P, Refs } from '../../components/ui/Cited'
 import { AltCards, GainCost } from '../../components/ui/AltCards'
 
 export const casoDeUso = (
