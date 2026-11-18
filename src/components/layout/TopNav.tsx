@@ -11,6 +11,9 @@ export default function TopNav() {
             T{t.num}
           </NavLink>
         ))}
+        <Link to="/" state={{ scrollTo: 'que-aprendi' }} title="Cierre del portafolio: qué aprendí">
+          Qué aprendí
+        </Link>
       </nav>
     </header>
   )

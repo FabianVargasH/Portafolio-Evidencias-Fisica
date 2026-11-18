@@ -1,8 +1,17 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import Hero from '../components/layout/Hero'
+import QueAprendi from '../components/sections/QueAprendi'
 import { topics } from '../topics/registry'
 
 export default function Home() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const id = (location.state as { scrollTo?: string } | null)?.scrollTo
+    if (id) setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 50)
+  }, [location.key])
+
   return (
     <>
       <Hero />
@@ -18,6 +27,7 @@ export default function Home() {
         ))}
       </div>
       </section>
+      <QueAprendi />
     </>
   )
 }

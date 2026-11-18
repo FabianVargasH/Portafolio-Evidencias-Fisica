@@ -118,7 +118,7 @@ export const fuentes = (
             <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html" target="_blank" rel="noreferrer">
               nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html
             </a>
-            . Consultado el 31 oct 2026. Verifica el valor de ≈ 13 km/s en la página antes de entregar.
+            . Consultado el 31 oct 2026.
           </>
         ),
       },

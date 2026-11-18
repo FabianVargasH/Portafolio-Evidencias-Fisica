@@ -15,8 +15,9 @@ export const casoDeUso = (
     <P>
       El mecanismo, según los desarmes: una palanca, una rueda dentada y un tornillo sin fin movido por un motor eléctrico;
       cuando el motor coloca la palanca, el gatillo tiene que vencer esa interferencia [1]. La resistencia añadida es el
-      torque del motor transmitido por esa cadena de engranajes, y un potenciómetro mide el giro del engranaje [2]. No hay
-      un resorte que genere la fuerza.
+      torque del motor transmitido por esa cadena de engranajes, y un potenciómetro mide el giro del engranaje [2]. La
+      resistencia adaptativa añadida no la genera un resorte, sino ese torque. El mecanismo podría incluir además un
+      resorte pasivo de retorno del gatillo; este portafolio no lo afirma ni lo descarta, y el modelo no lo incluye.
     </P>
     <P>La física que sostiene el caso es la de un resorte, que el motor imita (el «resorte virtual»):</P>
     <Eq>F<sub>el,x</sub> = −kx</Eq>
@@ -43,7 +44,12 @@ export const concepto = (
       puede introducirse o quitarse en cualquier punto del recorrido [1]. Lo represento como un resorte que empieza a actuar
       en x₀ (valor de diseño, no medido):
     </P>
-    <Eq>F(x) = 0 &nbsp; si x ≤ x₀ &nbsp;&nbsp;&nbsp; F(x) = k(x − x₀) &nbsp; si x &gt; x₀</Eq>
+    <Eq>R(x) = 0 &nbsp; si x ≤ x₀ &nbsp;&nbsp;&nbsp; R(x) = k(x − x₀) &nbsp; si x &gt; x₀</Eq>
+    <P>
+      R es la <strong>magnitud</strong> de la resistencia (siempre positiva, en N). Su dirección es opuesta al avance del
+      dedo, así que, con x creciendo en el sentido del avance, la componente de la fuerza sobre el dedo es F<sub>x</sub> = −R(x),
+      que es lo que dice la ley de Hooke con signo.
+    </P>
     <P>
       Energía [M2]: para un resorte ideal, U<sub>el</sub> = ½kx², y al estirarlo lentamente la fuerza externa hace un trabajo
       positivo que queda almacenado como energía potencial elástica. En el gatillo virtual no tengo fuente que diga qué
@@ -63,7 +69,7 @@ export const concepto = (
     <h4>Caso numérico (valores propios): k = 300 N/m, x₀ = 6 mm, x = 15 mm</h4>
     <ul>
       <Li>1. Deformación efectiva: x − x₀ = 15 − 6 = 9 mm = 0,009 m</Li>
-      <Li>2. Fuerza: F = k(x − x₀) = 300 × 0,009 = 2,7 N (opuesta al avance del dedo)</Li>
+      <Li>2. Magnitud de la resistencia: R = k(x − x₀) = 300 × 0,009 = 2,7 N (la fuerza sobre el dedo es F<sub>x</sub> = −2,7 N, opuesta al avance)</Li>
       <Li>3. Energía equivalente: ½ × 300 × 0,009² ≈ 0,0122 J ≈ 12 mJ</Li>
       <Li>4. Si se duplica k a 600 N/m, la fuerza se duplica (5,4 N), como indica la exploración del módulo [M2]</Li>
     </ul>
@@ -86,16 +92,16 @@ export const analisis = (
       en el modelo, empieza la fuerza restauradora.
     </P>
     <P>
-      Conexión con la ecuación: a partir de x₀ la oposición crece con el recorrido, F = k(x − x₀), y por la tercera ley es
-      la fuerza que el gatillo hace sobre el dedo. La figura muestra esa curva fuerza-desplazamiento; con el deslizador de
+      Conexión con la ecuación: a partir de x₀ la resistencia crece con el recorrido, R = k(x − x₀), y por la tercera ley
+      su magnitud es la de la fuerza que el gatillo hace sobre el dedo. La figura muestra esa curva fuerza-desplazamiento; con el deslizador de
       x₀ se ve cómo mover el punto donde el motor coloca el tope cambia dónde se siente el efecto.
     </P>
     <P>
       Límite: el video muestra el mecanismo, no la sensación ni los valores de fuerza. La curva es un modelo mío, no una
       medición de Sony.
     </P>
-    <h3>Extras para acompañar la explicación</h3>
-    <P>Se añadieron estas gráficas interactivas para poder acompañar el comportamiento del gatillo a nivel de Física :)</P>
+    <h3>Exploración interactiva del modelo</h3>
+    <P>Las gráficas siguientes permiten variar k, x₀ y el recorrido x para ver cómo cambian la resistencia R y la energía equivalente (modelo propio, no una medición).</P>
   </>
 )
 
@@ -119,11 +125,11 @@ export const justificacion = (
     />
     <GainCost
       gain="El software elige la fuerza y el punto de inicio, y la fuerza sigue la posición del dedo en lugar de un efecto fijo o guionizado [1]."
-      cost="Hardware adicional en cada gatillo (motor, tornillo sin fin, engranajes y potenciómetro [2]) y un control por software. Además, F = k(x − x₀) es una idealización: un resorte real tiene Hooke lineal solo en su rango [M2], y el motor puede producir cualquier perfil, así que elegir la curva se vuelve una decisión de diseño."
+      cost="Hardware adicional en cada gatillo (motor, tornillo sin fin, engranajes y potenciómetro [2]) y un control por software. Además, R = k(x − x₀) es una idealización: un resorte real tiene Hooke lineal solo en su rango [M2], y el motor puede producir cualquier perfil, así que elegir la curva se vuelve una decisión de diseño."
     />
   </>
 )
-
+analisis
 export const fuentes = (
   <Refs
     items={[

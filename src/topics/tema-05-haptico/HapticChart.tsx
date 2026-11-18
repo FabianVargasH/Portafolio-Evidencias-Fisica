@@ -20,9 +20,9 @@ export default function HapticChart() {
   return (
     <>
       <LineChartCard
-        title="Fuerza restauradora vs. recorrido del gatillo (modelo ilustrativo)"
-        data={data} xKey="mm" xLabel="Recorrido del gatillo x (mm)" yLabel="Fuerza (N)"
-        series={[{ key: 'F', name: 'F = k(x − x₀)', color: '#f87171' }]}
+        title="Resistencia del gatillo vs. recorrido (modelo ilustrativo)"
+        data={data} xKey="mm" xLabel="Recorrido del gatillo x (mm)" yLabel="Resistencia R (N)"
+        series={[{ key: 'F', name: 'R = k(x − x₀)', color: '#f87171' }]}
         mark={{ x, y: F }}
       />
       <label style={{ display: 'block', margin: '12px 0' }}>
@@ -39,7 +39,7 @@ export default function HapticChart() {
       </label>
       <TriggerDiagram x={x} x0={x0} k={k} F={F} xmax={XMAX * 1000} />
       <p>
-        En x = {f(x, 1)} mm: fuerza = <strong>{f(F)} N</strong>, energía equivalente ½k(x − x₀)² ={' '}
+        En x = {f(x, 1)} mm: resistencia R = <strong>{f(F)} N</strong>, energía equivalente ½k(x − x₀)² ={' '}
         <strong>{f(U * 1000)} mJ</strong>.
       </p>
       <p>Modelo ilustrativo, no es una medición: k, x₀ y el recorrido máximo son valores propios.</p>

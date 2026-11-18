@@ -9,6 +9,10 @@ import { content as t6 } from './tema-06-frenado'
 import { content as t7 } from './tema-07-restitucion'
 import { content as t8 } from './tema-08-reaccion'
 import { content as t9 } from './tema-09-voyager'
+import { content as t10 } from './tema-10-spring'
+import { content as t11 } from './tema-11-sintesis'
+import { content as t12 } from './tema-12-resonancia'
+import { content as t13 } from './tema-13-enfriamiento'
 
 export const topics: TopicMeta[] = [
   { id: 'tema-1', num: 1, title: 'Rastreo y navegación de un dron de reparto', resource: 'Visualización de datos', content: t1 },
@@ -20,4 +24,8 @@ export const topics: TopicMeta[] = [
   { id: 'tema-7', num: 7, title: 'El coeficiente de restitución en un motor de videojuego: por qué la pelota rebota mal', resource: 'Simulación interactiva', content: t7 },
   { id: 'tema-8', num: 8, title: 'Ruedas de reacción: cómo un satélite se gira sin empujarse contra nada', resource: 'Diagrama', content: t8 },
   { id: 'tema-9', num: 9, title: 'Asistencia gravitatoria: cómo la Voyager ganó velocidad sin gastar combustible', resource: 'Visualización de datos', content: t9 },
+  { id: 'tema-10', num: 10, title: 'Spring animations: el resorte amortiguado detrás de las animaciones de iOS y de Framer Motion', resource: 'Simulación interactiva', content: t10 },
+  { id: 'tema-11', num: 11, title: 'Síntesis de sonido: armónicos, timbre y el sintetizador', resource: 'Multimedia con análisis', content: t11 },
+  { id: 'tema-12', num: 12, title: 'Resonancia estructural: Tacoma Narrows y por qué las tropas rompen el paso al cruzar un puente', resource: 'Multimedia con análisis', content: t12 },
+  { id: 'tema-13', num: 13, title: 'Enfriamiento líquido de un centro de datos: continuidad, caudal y Bernoulli', resource: 'Visualización de datos', content: t13 },
 ]

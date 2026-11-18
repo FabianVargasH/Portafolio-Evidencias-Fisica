@@ -63,7 +63,7 @@ export default function TriggerDiagram({ x, x0, k, F, xmax }: Props) {
 
         <text x={8} y={184} fontSize="12" fill="var(--text)">
           {on
-            ? `Resorte virtual: F = k(x − x₀) = ${k} N/m × ${fmt((x - x0) / 1000, 3)} m = ${fmt(F)} N`
+            ? `Resistencia (resorte virtual): R = k(x − x₀) = ${k} N/m × ${fmt((x - x0) / 1000, 3)} m = ${fmt(F)} N`
             : 'Recorrido libre (x ≤ x₀): el motor no opone fuerza'}
         </text>
         {on && <path d={zig} fill="none" stroke={CR} strokeWidth="2" strokeDasharray="5 3" />}
@@ -71,7 +71,7 @@ export default function TriggerDiagram({ x, x0, k, F, xmax }: Props) {
         <line x1={cStart} x2={c0} y1={232} y2={232} stroke="var(--muted)" strokeWidth="6" />
         <line x1={c0} x2={cEnd} y1={232} y2={232} stroke={CR} strokeWidth="6" opacity=".55" />
         {c0 - cStart > 70 && (
-          <text x={(cStart + c0) / 2} y={222} textAnchor="middle" fontSize="11" fill="var(--muted)">libre (F = 0)</text>
+          <text x={(cStart + c0) / 2} y={222} textAnchor="middle" fontSize="11" fill="var(--muted)">libre (R = 0)</text>
         )}
         {cEnd - c0 > 90 && (
           <text x={(c0 + cEnd) / 2} y={222} textAnchor="middle" fontSize="11" fill="var(--muted)">zona del motor</text>

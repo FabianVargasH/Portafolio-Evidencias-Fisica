@@ -79,8 +79,9 @@ export default function ReactionWheelDiagram() {
       </svg>
 
       <p style={{ color: MUTED }}>
-        Con estos valores el satélite gira a {f(gradosPorMin, 2)}° por minuto. El ángulo con que se dibuja el satélite
-        está exagerado (máximo 25°) para que se note; no está a escala.
+        Con estos valores la velocidad angular del satélite es de {f(gradosPorMin, 2)}° por minuto (una rapidez, no un
+          ángulo). El ángulo acumulado crece con el tiempo, Δθ = ω·t: en 5 minutos serían {f(gradosPorMin * 5, 1)}°. El
+          ángulo con que se dibuja el satélite está exagerado (máximo 25°) para que se note; no está a escala.
       </p>
       <p className="muted">
         Valores supuestos (propios, no de una fuente): I<sub>rueda</sub> = {f(HUBBLE_WHEEL.I_rueda)} kg·m²,
@@ -91,9 +92,11 @@ export default function ReactionWheelDiagram() {
       {saturada && (
         <div style={{ background: '#451a03', border: '1px solid #fbbf24', padding: 12, borderRadius: 8, marginTop: 12, color: '#fcd34d' }}>
           <strong>Rueda saturada.</strong> La rueda llegó a su velocidad máxima y su momento angular no puede crecer más:
-          L<sub>máx</sub> = {f(lMax)} kg·m²/s. Con esta rueda el satélite no puede superar {f(wSatMax * 1000, 3)}×10⁻³ rad/s
-          ({f(wSatMax * 60 * RAD_DEG, 2)}° por minuto). Para seguir girando hay que quitarle momento a la rueda con un torque
-          externo, por ejemplo con barras de par magnético que interactúan con el campo magnético terrestre.
+          L<sub>máx</sub> = {f(lMax)} kg·m²/s. Como τ = dL/dt, ya no puede aplicar más torque al satélite en este sentido:
+          con la rueda sola, ω<sub>sat</sub> no pasa de {f(wSatMax * 1000, 3)}×10⁻³ rad/s
+          ({f(wSatMax * 60 * RAD_DEG, 2)}° por minuto). El satélite no se detiene: sin torque externo conserva esa ω y sigue
+          girando. Para volver a poder acelerarlo en este sentido hay que descargar la rueda con un torque externo, por
+          ejemplo con barras de par magnético que interactúan con el campo magnético terrestre.
         </div>
       )}
     </div>

@@ -12,11 +12,16 @@ export const casoDeUso = (
       mantiene constante.
     </P>
     <P>
-      Las ecuaciones que gobiernan este intercambio son:
+      Las ecuaciones que gobiernan este intercambio son el momento angular, la segunda ley para la rotación y la
+      conservación cuando no hay torque externo:
     </P>
     <Eq>
-      L = Iω &nbsp;&nbsp;&nbsp; L<sub>rueda</sub> + L<sub>satélite</sub> = 0
+      L = Iω &nbsp;&nbsp;&nbsp; τ = dL/dt &nbsp;&nbsp;&nbsp; L<sub>rueda</sub> + L<sub>satélite</sub> = 0 &nbsp;(τ<sub>ext</sub> = 0)
     </Eq>
+    <P>
+      De las dos últimas sale que el torque sobre el satélite es τ<sub>sat</sub> = dL<sub>sat</sub>/dt = −dL<sub>rueda</sub>/dt:
+      el satélite gira porque el motor cambia el momento angular de la rueda.
+    </P>
     <P>
       La justificación de usar ruedas de reacción en lugar de propulsores no es solo física, es de ingeniería: una razón
       práctica es que expulsar gases cerca de instrumentos ópticos sensibles puede ensuciarlos. Modelar la física permite
@@ -40,10 +45,19 @@ export const concepto = (
       suficiente para apuntar con precisión durante largos periodos.
     </P>
     <P>
-      <strong>Saturación:</strong> La rueda no puede acelerar indefinidamente. Cuando alcanza su límite de seguridad
-      (velocidad máxima), se dice que está «saturada»: su momento angular ya no puede crecer. En ese momento, el Hubble usa{' '}
-      <strong>barras de par magnético</strong> para generar un torque externo y descargar el momento acumulado, como
-      explica ESA/Hubble [1].
+      <strong>Velocidad angular y ángulo acumulado:</strong> ω<sub>satélite</sub> = −0,00052 rad/s es una rapidez de giro
+      (cuánto cambia el ángulo por segundo), no un ángulo. Mientras ω se mantenga constante, el ángulo acumulado es
+      Δθ = ω·t: en 5 minutos (300 s) son ≈ 0,16 rad ≈ 9°, y en 10 minutos ≈ 18°.
+    </P>
+    <P>
+      <strong>Saturación:</strong> el momento angular de la rueda tiene un máximo, L<sub>máx</sub> = I·ω<sub>máx</sub>.
+      Al llegar a ω<sub>máx</sub> la rueda está «saturada»: ya no puede aumentar L en ese sentido, así que dL/dt = 0 y,
+      por τ = dL/dt, ya no puede aplicarle más torque al satélite en ese sentido. Esto no detiene al satélite: sin torque
+      externo su momento angular se conserva y sigue girando con la ω que ya tenía. Lo que pierde es la capacidad de
+      cambiar su rotación en ese sentido (razonamiento propio a partir de τ = dL/dt; frenar o invertir la rueda sí
+      daría torque en sentido contrario). Para recuperar esa capacidad, el Hubble usa{' '}
+      <strong>barras de par magnético</strong>, que generan un torque externo y permiten descargar el momento acumulado
+      en la rueda, como explica ESA/Hubble [1].
     </P>
     <P>
       <strong>Conexión con otros temas:</strong> igual que en los choques del Tema 7, donde el momento lineal total se
@@ -68,13 +82,13 @@ export const justificacion = (
         },
         {
           title: 'No modelar la saturación',
-          text: 'Si solo se modela el giro sin límite, el software asumiría que la rueda puede acelerar siempre. El modelo físico incluye L_máx = I·ω_máx, de modo que se sabe cuánto puede girar el satélite antes de necesitar las barras magnéticas.',
+          text: 'Si solo se modela el giro sin límite, el software asumiría que la rueda puede acelerar siempre. El modelo físico incluye L_máx = I·ω_máx, de modo que se sabe cuánta velocidad angular puede darle la rueda al satélite antes de necesitar las barras magnéticas.',
         },
       ]}
     />
     <GainCost
       gain="Modelar la conservación de L permite calcular cuánto debe girar la rueda para orientar el satélite usando solo electricidad, sin gastar combustible."
-      cost="La rueda puede saturarse: si llega a su velocidad máxima, el satélite no puede girar más en esa dirección hasta que se use un torque externo (barras magnéticas). El modelo debe incluir este límite y el mecanismo de descarga. Además, el modelo de esta página es de un solo eje y usa valores supuestos; un satélite real tiene varias ruedas y ejes acoplados."
+      cost="La rueda puede saturarse: si llega a su velocidad máxima, ya no puede aplicar más torque en ese sentido (el satélite sigue girando con la velocidad que ya tenía) hasta que se use un torque externo (barras magnéticas) para descargarla. El modelo debe incluir este límite y el mecanismo de descarga. Además, el modelo de esta página es de un solo eje y usa valores supuestos; un satélite real tiene varias ruedas y ejes acoplados."
     />
   </>
 )

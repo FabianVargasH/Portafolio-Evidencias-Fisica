@@ -1,8 +1,8 @@
 // src/lib/physics/reactionWheel.ts
 
 export const HUBBLE_WHEEL = {
-  I_rueda: 0.02, // kg·m² (momento de inercia de una rueda típica de Hubble)
-  I_satelite: 12000, // kg·m² (inercia estimada del Hubble)
+  I_rueda: 0.02, 
+  I_satelite: 12000, 
   omega_rueda_max: 3000, // rpm (límite de seguridad de la rueda)
   omega_rueda_max_rad: (3000 * 2 * Math.PI) / 60, // rad/s
 }

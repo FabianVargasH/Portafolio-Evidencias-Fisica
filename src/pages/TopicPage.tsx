@@ -30,7 +30,12 @@ export default function TopicPage() {
               <span className="dir">Siguiente <span className="arr" aria-hidden>→</span></span>
               <strong>Tema {next.num}: {next.title}</strong>
             </Link>
-          ) : <span />}
+          ) : (
+            <Link to="/" state={{ scrollTo: 'que-aprendi' }} className="pager-link next">
+              <span className="dir">Siguiente <span className="arr" aria-hidden>→</span></span>
+              <strong>Cierre: Qué aprendí</strong>
+            </Link>
+          )}
         </div>
       </div>
     </div>
